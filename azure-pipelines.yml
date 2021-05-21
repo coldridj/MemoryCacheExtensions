@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.1.x'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: |
+      src/MemoryCache.Extensions/MemoryCache.Extensions.csproj
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: |
+      tests/MemoryCache.Extensions.UnitTests/MemoryCache.Extensions.UnitTests.csproj
+    arguments: |
+      --no-build
