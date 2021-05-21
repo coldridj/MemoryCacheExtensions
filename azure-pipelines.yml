@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: |
+      src/MemoryCache.Extensions/MemoryCache.Extensions.csproj
+    
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: |
+      tests/MemoryCache.Extensions.UnitTests/MemoryCache.Extensions.UnitTests.csproj
+    arguments: |
+      --no-build
