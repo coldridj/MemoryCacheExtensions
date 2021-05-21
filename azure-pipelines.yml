@@ -21,4 +21,4 @@ steps:
     projects: |
       tests/MemoryCache.Extensions.UnitTests/MemoryCache.Extensions.UnitTests.csproj
     publishTestResults: true
-    arguments: '--no-build --no-restore--verbosity detailed'
+    arguments: '--no-build --no-restore --verbosity detailed'
